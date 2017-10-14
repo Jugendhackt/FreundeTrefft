@@ -3,7 +3,6 @@
 <script src="https://code.jquery.com/jquery-3.2.1.js"
 			  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
 			  crossorigin="anonymous"></script>
-
 <title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,14 +63,27 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       question = childSnapshot.val();
 
       // Update the HTML to display the recommendation text
-      $("question1Title").html(question.de)
-      //$("#presenter").html(recommendation.presenter)
-      //$("#link").html(recommendation.link)
+      $("#title").html(recommendation.title)
+      $("#presenter").html(recommendation.presenter)
+      $("#link").html(recommendation.link)
 
       // Make the link actually work and direct to the URL provided
-      //$("#link").attr("href", recommendation.link)
+      $("#link").attr("href", recommendation.link)
     });
 
+    // When the window is fully loaded, call this function.
+    // Note: because we are attaching an event listener to a particular HTML element
+    // in this function, we can't do that until the HTML element in question has
+    // been loaded. Otherwise, we're attaching our listener to nothing, and no code
+    // will run when the submit button is clicked.
+    $(window).load(function () {
+
+      // Find the HTML element with the id recommendationForm, and when the submit
+      // event is triggered on that element, call submitRecommendation.
+      $("#recommendationForm").submit(submitRecommendation);
+
+    });
+    var questions = firebase.database().ref("questions");
 
 // Save a new recommendation to the database, using the input in the form
 var submitRecommendation = function () {
@@ -89,13 +101,39 @@ var submitRecommendation = function () {
   });
 };
 
+// Get the single most recent recommendation from the database and
+// update the table with its values. This is called every time the child_added
+// event is triggered on the questions Firebase reference, which means
+// that this will update EVEN IF you don't refresh the page. Magic.
+questions.limitToLast(1).on('child_added', function(childSnapshot) {
+  // Get the recommendation data from the most recent snapshot of data
+  // added to the questions list in Firebase
+  question = childSnapshot.val();
+
+  // Update the HTML to display the recommendation text
+  $("#subscribeNews").html(question.en)
+  $("#presenter").html(recommendation.presenter)
+  $("#link").html(recommendation.link)
+
+  // Make the link actually work and direct to the URL provided
+  $("#link").attr("href", recommendation.link)
+});
+
+// When the window is fully loaded, call this function.
+// Note: because we are attaching an event listener to a particular HTML element
+// in this function, we can't do that until the HTML element in question has
+// been loaded. Otherwise, we're attaching our listener to nothing, and no code
+// will run when the submit button is clicked.
+$(window).load(function () {
+  $("#Q1title").html(question.en);
+  });
 
   </script>
 
   <!-- Photo grid -->
   <div class="w3-row w3-grayscale-min">
     <div class="w3-quarter">
-      <div id ="#question1Title"> Height <div>
+      <div id = "Q1title">height <div>
       <form>
   <div>
     <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
@@ -153,7 +191,7 @@ var submitRecommendation = function () {
    <div class="w3-quarter">
       <img src="/w3images/girl_train.jpg" style="width:100%" onclick="onClick(this)" alt="A girl, and a train passing">
       <img src="/w3images/man_bench.jpg" style="width:100%" onclick="onClick(this)" alt="Waiting for the bus in the desert">
-      <img src="/w3images/natureboy.jpg" style="width:100%" onclick="onClick(this)" alt="Nature again.. At its finest!">
+
     </div>
 
     <div class="w3-quarter">
@@ -165,7 +203,6 @@ var submitRecommendation = function () {
     <div class="w3-quarter">
       <img src="/w3images/natureboy.jpg" style="width:100%" onclick="onClick(this)" alt="A boy surrounded by beautiful nature">
       <img src="/w3images/girl_train.jpg" style="width:100%" onclick="onClick(this)" alt="A girl, and a train passing">
-      <img src="/w3images/boy.jpg" style="width:100%" onclick="onClick(this)" alt="Quiet day at the beach. Cold, but beautiful">
     </div>
   </div>
 
