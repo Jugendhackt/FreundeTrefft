@@ -1,0 +1,60 @@
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h5 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+    background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/V7hRLuVqxikh75uky/abstract-light-grey-3d-polygonal-motion-background-for-modern-reports-and-presetations-4k-seamless-loop-animation-prores_s7sptfhc_thumbnail-full01.png');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+</style>
+<body>
+
+<div class="bgimg w3-display-container w3-text-white">
+  <div class="w3-display-middle w3-jumbo">
+    <p>logo</p>
+  </div>
+  <div class="w3-display-topleft w3-container w3-xlarge">
+    <p><button onclick="document.getElementById('SIGN UP').style.display='block'" class="w3-button w3-black">SIGN UP</button></p>
+    <p><button onclick="document.getElementById('ABOUT US').style.display='block'" class="w3-button w3-black">ABOUT US</button></p>
+  </div>
+  <div class="w3-display-bottomleft w3-container">
+    <p>powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  </div>
+</div>
+
+<!-- Menu Modal -->
+<div id="SIGN UP" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-black w3-display-container">
+      <span onclick="document.getElementById('SIGN UP').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+      <form class="_asaim"><span class="_9mno0 _ov9ai"><button class="_qv64e _gexxb _4tgw8 _njrw0"><span class="coreSpriteFacebookIconInverted _ddcu7"></span><!-- react-text: 117 -->Login With Facebook<!-- /react-text --></button></span><div class="_fhskl"><div class="_j5suk"></div><div class="_hxmdu">----Or----</div><div class="_j5suk"></div></div><div class="_agqzm"><div class="_sjplo"><input type="text" class="_ph6vk _o716c" aria-describedby="" aria-label="手機號碼或電子郵件" aria-required="true" autocapitalize="off" autocorrect="off" name="emailOrPhone" placeholder="Email" value=""><div class="_gaby6"></div></div></div><div class="_agqzm"><div class="_sjplo"><input type="text" class="_ph6vk _o716c" aria-describedby="" aria-label="用戶名稱" aria-required="true" autocapitalize="off" autocorrect="off" maxlength="30" name="username" placeholder="User Name" value=""><div class="_gaby6"></div></div></div><div class="_agqzm"><div class="_sjplo"><input type="password" class="_ph6vk _o716c" aria-describedby="" aria-label="密碼" aria-required="true" autocapitalize="off" autocorrect="off" name="password" placeholder="Password"< value=""><div class="_gaby6"></div></div></div><div><span class="_9mno0 _ov9ai"><button class="_qv64e _gexxb _4tgw8 _njrw0">Register</button></span></div><p class="_fd2m9"><!-- react-text: 142 -->By signing up, you agree <!-- /react-text --><a class="_nzfks" href="/legal/terms/" target="_blank">Terms</a><!-- react-text: 144 --> & <!-- /react-text --><a class="_nzfks" href="/legal/privacy/" target="_blank">Privacy Policy</a><!-- react-text: 146 --> 。<!-- /react-text --></p></form>
+
+<!-- Contact Modal -->
+<div id="contact" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-black">
+      <span onclick="document.getElementById('contact').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+      <h1>Contact</h1>
+    </div>
+    <div class="w3-container">
+      <p>Reserve a table, ask for today's special or just send us a message:</p>
+      <form action="/action_page.php" target="_blank">
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="How many people" required name="People"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required name="date" value="2017-11-16T20:00"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
+        <p><button class="w3-button" type="submit">SEND MESSAGE</button></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
