@@ -20,6 +20,44 @@ body, html {height: 100%}
   <div class="w3-display-middle w3-jumbo">
     <p>logo</p>
   </div>
+  <script src="https://www.gstatic.com/firebasejs/4.5.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAHzCjUX8llu37wg-OTb5VDvH2YfNWYUKc",
+      authDomain: "jagenhackt17tokio.firebaseapp.com",
+      databaseURL: "https://jagenhackt17tokio.firebaseio.com",
+      projectId: "jagenhackt17tokio",
+      storageBucket: "jagenhackt17tokio.appspot.com",
+      messagingSenderId: "233771707999"
+    };
+    firebase.initializeApp(config);
+    var questions = firebase.database().ref("questions");
+
+    var users = myFirebase.child("users");
+
+// Push our first recommendation to the end of the list and assign it a
+// unique ID automatically.
+users.push({
+    "Email": "donaldtrump@gmail.com",
+    "User Name": "IamDonald",
+    "PW":"TinyHands"
+});
+
+
+    // Get the single most recent recommendation from the database and
+    // update the table with its values. This is called every time the child_added
+    // event is triggered on the questions Firebase reference, which means
+    // that this will update EVEN IF you don't refresh the page. Magic.
+
+    questions.limitToLast(1).on('child_added', function(childSnapshot) {
+      // Get the recommendation data from the most recent snapshot of data
+      // added to the questions list in Firebase
+      question = childSnapshot.val();
+
+    });
+</script>
+
   <div class="w3-display-topleft w3-container w3-xlarge">
     <p><button onclick="document.getElementById('SIGN UP').style.display='block'" class="w3-button w3-black">SIGN UP</button></p>
     <p><button onclick="document.getElementById('ABOUT US').style.display='block'" class="w3-button w3-black">ABOUT US</button></p>
@@ -33,6 +71,8 @@ body, html {height: 100%}
   <div class="w3-modal-content w3-animate-zoom">
     <div class="w3-container w3-black w3-display-container">
       <span onclick="document.getElementById('SIGN UP').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+      <form action="mailto:shrimpshrimpmc@gmail.com" method="post" enctype="text/plain">
+      Name:<br>
       <form class="_asaim"><span class="_9mno0 _ov9ai"><button class="_qv64e _gexxb _4tgw8 _njrw0"><span class="coreSpriteFacebookIconInverted _ddcu7"></span><!-- react-text: 117 -->Login With Facebook<!-- /react-text --></button></span><div class="_fhskl"><div class="_j5suk"></div><div class="_hxmdu">----Or----</div><div class="_j5suk"></div></div><div class="_agqzm"><div class="_sjplo"><input type="text" class="_ph6vk _o716c" aria-describedby="" aria-label="手機號碼或電子郵件" aria-required="true" autocapitalize="off" autocorrect="off" name="emailOrPhone" placeholder="Email" value=""><div class="_gaby6"></div></div></div><div class="_agqzm"><div class="_sjplo"><input type="text" class="_ph6vk _o716c" aria-describedby="" aria-label="用戶名稱" aria-required="true" autocapitalize="off" autocorrect="off" maxlength="30" name="username" placeholder="User Name" value=""><div class="_gaby6"></div></div></div><div class="_agqzm"><div class="_sjplo"><input type="password" class="_ph6vk _o716c" aria-describedby="" aria-label="密碼" aria-required="true" autocapitalize="off" autocorrect="off" name="password" placeholder="Password"< value=""><div class="_gaby6"></div></div></div><div><span class="_9mno0 _ov9ai"><button class="_qv64e _gexxb _4tgw8 _njrw0">Register</button></span></div><p class="_fd2m9"><!-- react-text: 142 -->By signing up, you agree <!-- /react-text --><a class="_nzfks" href="/legal/terms/" target="_blank">Terms</a><!-- react-text: 144 --> & <!-- /react-text --><a class="_nzfks" href="/legal/privacy/" target="_blank">Privacy Policy</a><!-- react-text: 146 --> 。<!-- /react-text --></p></form>
 
 <!-- Contact Modal -->
