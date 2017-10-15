@@ -4,6 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <style>
 body,h1,h5 {font-family: "Raleway", sans-serif}
 body, html {height: 100%}
@@ -39,10 +40,25 @@ body, html {height: 100%}
 
 // Push our first recommendation to the end of the list and assign it a
 // unique ID automatically.
-users.push({
-    "Email": "donaldtrump@gmail.com",
-    "User Name": "IamDonald",
-    "PW":"TinyHands"
+
+var submitUser = function () {
+  var Mail = $("#user_email").val();
+  var Name = $("#user_name").val();
+  var PW = $("#user_pw").val();
+
+  users.push({
+      "Email": Mail,
+      "User Name": Name,
+      "PW":PW,
+  });
+}
+
+$(window).load(function () {
+
+  // Find the HTML element with the id recommendationForm, and when the submit
+  // event is triggered on that element, call submitRecommendation.
+  $("#JustinForm").submit(submitUser);
+
 });
 
 
@@ -72,9 +88,41 @@ users.push({
   <div class="w3-modal-content w3-animate-zoom">
     <div class="w3-container w3-black w3-display-container">
       <span onclick="document.getElementById('SIGN UP').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-      <form action="mailto:shrimpshrimpmc@gmail.com" method="post" enctype="text/plain">
+      <form id="JustinForm">
       Name:<br>
-      <form class="_asaim"><span class="_9mno0 _ov9ai"><button class="_qv64e _gexxb _4tgw8 _njrw0"><span class="coreSpriteFacebookIconInverted _ddcu7"></span><!-- react-text: 117 -->Login With Facebook<!-- /react-text --></button></span><div class="_fhskl"><div class="_j5suk"></div><div class="_hxmdu">----Or----</div><div class="_j5suk"></div></div><div class="_agqzm"><div class="_sjplo"><input type="text" class="_ph6vk _o716c" aria-describedby="" aria-label="手機號碼或電子郵件" aria-required="true" autocapitalize="off" autocorrect="off" name="emailOrPhone" placeholder="Email" value=""><div class="_gaby6"></div></div></div><div class="_agqzm"><div class="_sjplo"><input type="text" class="_ph6vk _o716c" aria-describedby="" aria-label="用戶名稱" aria-required="true" autocapitalize="off" autocorrect="off" maxlength="30" name="username" placeholder="User Name" value=""><div class="_gaby6"></div></div></div><div class="_agqzm"><div class="_sjplo"><input type="password" class="_ph6vk _o716c" aria-describedby="" aria-label="密碼" aria-required="true" autocapitalize="off" autocorrect="off" name="password" placeholder="Password"< value=""><div class="_gaby6"></div></div></div><div><span class="_9mno0 _ov9ai"><button class="_qv64e _gexxb _4tgw8 _njrw0">Register</button></span></div><p class="_fd2m9"><!-- react-text: 142 -->By signing up, you agree <!-- /react-text --><a class="_nzfks" href="/legal/terms/" target="_blank">Terms</a><!-- react-text: 144 --> & <!-- /react-text --><a class="_nzfks" href="/legal/privacy/" target="_blank">Privacy Policy</a><!-- react-text: 146 --> 。<!-- /react-text --></p></form>
+      <form class="_asaim">
+          <span class="_9mno0 _ov9ai">
+            <button class="_qv64e _gexxb _4tgw8 _njrw0">
+              <span class="coreSpriteFacebookIconInverted _ddcu7"></span><!-- react-text: 117 -->Login With Facebook<!-- /react-text -->
+            </button>
+          </span>
+          <div class="_fhskl">
+            <div class="_j5suk"></div>
+            <div class="_hxmdu">----Or----</div>
+            <div class="_j5suk"></div>
+          </div>
+          <div class="_agqzm">
+            <div class="_sjplo">
+              <input type="text" class="_ph6vk _o716c" aria-describedby="" aria-label="手機號碼或電子郵件" aria-required="true" autocapitalize="off" autocorrect="off" name="emailOrPhone" placeholder="Email" value="" id="user_email">
+              <div class="_gaby6">
+              </div>
+            </div>
+        </div>
+        <div class="_agqzm"><div class="_sjplo"><input type="text" class="_ph6vk _o716c" aria-describedby="" aria-label="用戶名稱" aria-required="true" autocapitalize="off" autocorrect="off" maxlength="30" name="username" placeholder="User Name" value="" id="user_name">
+          <div class="_gaby6">
+          </div>
+        </div>
+        </div>
+        <div class="_agqzm"><div class="_sjplo"><input type="password" class="_ph6vk _o716c" aria-describedby="" aria-label="密碼" aria-required="true" autocapitalize="off" autocorrect="off" name="password" placeholder="Password"< value="" id="user_pw">
+          <div class="_gaby6">
+          </div>
+        </div>
+        </div>
+        <div><span class="_9mno0 _ov9ai"><button class="_qv64e _gexxb _4tgw8 _njrw0">Register</button></span>
+        </div>
+        <p class="_fd2m9"><!-- react-text: 142 -->By signing up, you agree <!-- /react-text --><a class="_nzfks" href="/legal/terms/" target="_blank">Terms</a><!-- react-text: 144 --> & <!-- /react-text --><a class="_nzfks" href="/legal/privacy/" target="_blank">Privacy Policy</a><!-- react-text: 146 --> 。<!-- /react-text -->
+        </p>
+      </form>
 
 <!-- Contact Modal -->
 <div id="contact" class="w3-modal">
